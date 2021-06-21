@@ -3,10 +3,10 @@ require('./models')
 const express = require('express')
 const app = express()
 const routes = require('./routes')
-const PORT = 8000
+const PORT = 8003
 
 
-app.use('/presenca', routes.listaPresenca);
+app.use('/usuarios', routes.usuario);
 
 
 app.get('/', (req, res) => {

@@ -7,7 +7,7 @@ let options = {
   freezeTableName: true,
 }
 
-const Presenca = sequelize.define('Presenca', {
+const Usuario = sequelize.define('Usuario', {
   nome: {
     type: DataTypes.STRING,
     allowNull: false
@@ -18,4 +18,4 @@ const Presenca = sequelize.define('Presenca', {
 }, options);
 
 
-module.exports = Presenca
+module.exports = Usuario

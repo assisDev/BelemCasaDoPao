@@ -1,5 +1,5 @@
-const listaPresenca = require('./listaPresenca')
+const usuario = require('./usuario')
 
 module.exports = {
-    listaPresenca
+    usuario
 }

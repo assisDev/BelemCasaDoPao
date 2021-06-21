@@ -1,5 +1,5 @@
-const Presenca = require('./Presenca')
+const Usuario = require('./Usuario')
 
 module.exports = {
-    Presenca
+    Usuario
 }
