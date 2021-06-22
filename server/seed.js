@@ -3,7 +3,7 @@ const models = require('./models')
 
 async function init(){
     try{
-        await seedPresenca()
+        await seedUsuario()
 
     } catch(e){
         console.log('Algo aconteceu:', e)
@@ -13,26 +13,26 @@ async function init(){
 }
 
 
-async function seedPresenca(){
-    let nomes = [
+async function seedUsuario(){
+    let usuariosMock = [
         {
             'nome': 'Matheus',
-            'Sobrenome': 'Assis'
+            'sobrenome': 'Assis'
         },
         {
             'nome': 'Maria',
-            'Sobrenome': 'Lurdes'
+            'sobrenome': 'Lurdes'
         },
         {
             'nome': 'Marcelo',
-            'Sobrenome': 'Assis'
+            'sobrenome': 'Assis'
         }
     ]
     
-    await models.Presenca.sync({ force: true })
+    await models.Usuario.sync({ force: true })
     
-    nomes.forEach(async nome => {
-        await models.Presenca.create(nome)
+    usuariosMock.forEach(async nome => {
+        await models.Usuario.create(nome)
     })
 }
 
