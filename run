@@ -23,6 +23,6 @@ if [ "$1" == "server" ] || [ "$1" == "server/" ];then
 fi
 
 if [ "$1" == "seed" ] || [ "$1" == "seed/" ];then
-    cd server
+    cd server/databases
     node seed.js
 fi

@@ -8,9 +8,14 @@ let options = {
   freezeTableName: true,
 }
 
-const Presenca = sequelize.define('Presenca', {}, options);
+const Presenca = sequelize.define('Presenca', {
+  data: {
+    type: DataTypes.DATEONLY,
+    allowNull: false
+  }
+}, options);
 
-Presenca.belongsTo(Usuario, {
+Presenca.hasMany(Usuario, {
   foreignKey: 'id',
   onDelete: 'cascade',
   constraints: false,

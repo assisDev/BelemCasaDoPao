@@ -1,0 +1,5 @@
+{
+    "porta": 8003,
+    "dialect": "sqlite",
+    "storage": "databases/storage.sqlite"
+}

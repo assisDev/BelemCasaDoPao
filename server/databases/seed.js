@@ -1,5 +1,6 @@
-const Usuario = require('./models/Usuario') 
-const Presenca = require('./models/Presenca') 
+const Usuario = require('../models/Usuario') 
+const Presenca = require('../models/Presenca') 
+
 
 
 async function init(){
@@ -37,8 +38,18 @@ async function seedUsuario(){
 
 async function seedPresenca(){
     let usuarios = await Usuario.findAll()
+    let dados = []
+    usuarios.forEach(usuario => {
+        let mock = {
+            usuario,
+            data: Date.now()
+        }
+        dados.push(mock)
+    })
     await Presenca.sync({ force: true })
-    await Presenca.bulkCreate(usuarios)
+    await Presenca.bulkCreate(dados)
+    let novoDado = ({usuario: usuarios[0], data: Date.now()})
+    await Presenca.create(novoDado)
 }
 
 
