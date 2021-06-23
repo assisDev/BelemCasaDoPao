@@ -8,15 +8,15 @@ let options = {
 }
 
 const Usuario = sequelize.define('Usuario', {
-  nome: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  sobrenome: {
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-}, options);
+    nome: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    sobrenome: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+  }, options);
 
 
 module.exports = Usuario

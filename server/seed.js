@@ -1,15 +1,17 @@
-const models = require('./models')
+const Usuario = require('./models/Usuario') 
+const Presenca = require('./models/Presenca') 
 
 
 async function init(){
     try{
+        console.log('Executando seed...')
         await seedUsuario()
-
+        await seedPresenca()
+        console.log('Pronto!')
     } catch(e){
         console.log('Algo aconteceu:', e)
     }
 
-    console.log('Pronto!')
 }
 
 
@@ -29,13 +31,15 @@ async function seedUsuario(){
         }
     ]
     
-    await models.Usuario.sync({ force: true })
-    
-    usuariosMock.forEach(async nome => {
-        await models.Usuario.create(nome)
-    })
+    await Usuario.sync({ force: true })
+    await Usuario.bulkCreate(usuariosMock)
+}
+
+async function seedPresenca(){
+    let usuarios = await Usuario.findAll()
+    await Presenca.sync({ force: true })
+    await Presenca.bulkCreate(usuarios)
 }
 
 
-console.log('Executando seed...')
 init()

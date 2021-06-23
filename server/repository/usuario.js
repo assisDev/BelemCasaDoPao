@@ -1,5 +1,6 @@
 const usuarioModel = require('../models/Usuario')
 
+
 async function get_all(){
     try{
         let usuarios = await usuarioModel.findAll()

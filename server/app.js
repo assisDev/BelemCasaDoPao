@@ -1,17 +1,24 @@
-require('./models')
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
 const routes = require('./routes')
+const config = require('./config.json')
 
-const PORT = 8003
+const PORT = config['porta']
 
+modelos = [
+  require('./models/Presenca'),
+  require('./models/Usuario')
+]
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+configuracoes = [
+  app.use(express.json())
 
-app.use('/usuarios', routes.usuario);
+]
 
+rotasPublicas = [
+  app.use('/usuarios', routes.usuario)
+
+] 
 
 app.get('/', (req, res) => {
   res.send({'belem': 'Bem-vindo!'})
