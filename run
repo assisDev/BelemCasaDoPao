@@ -1,0 +1,28 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+    echo "Instruções:"
+    echo
+    echo -e "\033[1;32m  $0 client \033[0m       - Rodar Cliente (Vue.js)"
+    echo -e "\033[1;32m  $0 server \033[0m       - Rodar Servidor (Express)"
+    echo -e "\033[1;32m  $0 seed \033[0m       - Limpa o banco de dados e popular com dados novos"
+    echo
+    exit 0
+fi
+
+cd $(dirname $0)
+
+if [ "$1" == "client" ] || [ "$1" == "client/" ]; then
+    cd client
+    npm run dev
+fi
+
+if [ "$1" == "server" ] || [ "$1" == "server/" ];then
+    cd server
+    nodemon app.js
+fi
+
+if [ "$1" == "seed" ] || [ "$1" == "seed/" ];then
+    cd server
+    node seed.js
+fi
